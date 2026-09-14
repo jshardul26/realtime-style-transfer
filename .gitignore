@@ -1,0 +1,32 @@
+# Ignore macOS system files
+.DS_Store
+**/.DS_Store
+
+# Ignore Python bytecode directories
+__pycache__/
+**/__pycache__/
+*.pyc
+
+# Virtual environment - never commit, recreated via requirements.txt
+venv/
+
+# Training datasets - far too large for GitHub (GBs), never commit
+NST_Code/datasets/
+
+# Leftover downloaded wheel files
+*.whl
+
+# Generated training sample images - large in aggregate, not needed in repo
+NST_Code/experiment/*/output_*.png
+NST_Code/experiment/*/sample_iter_*.png
+
+# Flask runtime upload/output folder - user-generated content, not source
+NST_Code/static/uploads/
+
+# Only keep the final trained decoder - exclude all intermediate checkpoints and optimizer states
+NST_Code/experiment/*/optimizer_*.pth
+NST_Code/experiment/*/decoder_[0-9].pth
+NST_Code/experiment/*/decoder_[0-9][0-9].pth
+NST_Code/experiment/quick_test/
+NST_Code/experiment/quick_test2/
+!NST_Code/experiment/my_run1/decoder_50.pth
